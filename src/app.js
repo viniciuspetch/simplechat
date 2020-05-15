@@ -14,10 +14,10 @@ app.get("/", function (req, res) {
 });
 
 io.on("connection", function (socket) {
-  socket.emit("main", "hello");
+  socket.emit("main", { username: "System", message: "Hello" });
   socket.on("main", (msg) => {
-    console.log(msg)
-    io.emit("main", "echo " + msg);
+    console.log(msg);
+    io.emit("main", msg);
   });
 });
 
