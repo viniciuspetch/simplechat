@@ -15,10 +15,13 @@
 </head>
 
 <body>
+    <form id="username-form" action="">
+        Username <input id="username-input" autocomplete="off" />
+        <button>Change username</button>
+    </form>
     <form id="chat-in" action="">
-        Username <input id="username-input" autocomplete="off" /><br>
-        Message <input id="chat-in-msg" autocomplete="off" /><br>        
-        <button>Send</button>
+        Message <input id="chat-in-msg" autocomplete="off" />
+        <button>Send message</button>
     </form>
     <ul style="border: 1px solid black" id="messages"></ul>
     <script src="js/index.js"></script>
