@@ -17,7 +17,16 @@ io.on("connection", function (socket) {
   socket.emit("main", { username: "System", message: "Hello" });
   socket.on("main", (msg) => {
     console.log(msg);
-    io.emit("main", msg);
+    if (msg.room) {
+      io.to(msg.room).emit("main", msg);
+    } else {
+      io.emit("main", msg);
+    }
+  });
+  socket.on("command", (msg) => {
+    console.log("event: command");
+    console.log(msg);
+    socket.join(msg.room);
   });
 });
 
